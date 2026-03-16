@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/GirisTxtLyt"
+        app:layout_constraintBottom_toTopOf="@id/KullaniciAdiTxtLyt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
@@ -21,7 +21,7 @@
         ></TextView>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/GirisTxtLyt"
+        android:id="@+id/KullaniciAdiTxtLyt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Kullanıcı Adını Giriniz."
@@ -36,9 +36,24 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/SifreTxtLyt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Şifrenizi Giriniz."
+        app:layout_constraintTop_toBottomOf="@id/KullaniciAdiTxtLyt"
+        app:layout_constraintEnd_toEndOf="@id/KullaniciAdiTxtLyt"
+        app:layout_constraintStart_toStartOf="@id/KullaniciAdiTxtLyt"
+        app:layout_constraintHeight_percent="0.07"
+        android:layout_marginTop="10dp">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
