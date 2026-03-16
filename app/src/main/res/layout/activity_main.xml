@@ -91,9 +91,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kurumsal"></RadioButton>
+    </RadioGroup>
 
+    <TextView
+        android:id="@+id/MaasBelirlemeTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/RadioMeslekTxt"
+        app:layout_constraintStart_toStartOf="@id/RadioMeslekTxt"
+        app:layout_constraintTop_toBottomOf="@id/MeslekRadioGrp"
+        android:text="Maaş Aralığınızı Seçininiz."
+        android:layout_marginTop="10dp">
+    </TextView>
+
+    <RadioGroup
+        android:id="@+id/MaasRadioGrp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/MaasBelirlemeTxt"
+        app:layout_constraintStart_toStartOf="@+id/MaasBelirlemeTxt"
+        app:layout_constraintEnd_toEndOf="@+id/MaasBelirlemeTxt"
+        android:layout_marginTop="10dp"
+        app:layout_constraintHeight_percent="0.15">
+
+        <RadioButton
+            android:id="@+id/Maas0_30kBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 - 30.000 ₺"></RadioButton>
+        <RadioButton
+            android:id="@+id/Maas30_80kBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30.000 - 80.000 ₺"></RadioButton>
+        <RadioButton
+            android:id="@+id/Maas80kBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="80.000+₺"></RadioButton>
 
     </RadioGroup>
 
+        <CheckBox
+            android:id="@+id/KvkkChk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6628 Sayılı Kişilsel verilerin korunma kanununa göre kişisel bilgilerimin işlenmesi onaylıyorum."
+            app:layout_constraintTop_toBottomOf="@id/MaasRadioGrp"
+            app:layout_constraintStart_toStartOf="@id/MaasBelirlemeTxt"
 
+        ></CheckBox>
+
+        <Button
+            android:id="@+id/OnayBtn"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Hesap Oluştur"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/KvkkChk"
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintHorizontal_bias="0.45"
+            ></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
