@@ -35,6 +35,7 @@
         app:layout_constraintVertical_bias="0.10"
         app:layout_constraintHorizontal_bias="0.1">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/KullaniciAdiEdtTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -84,10 +85,12 @@
         app:layout_constraintVertical_bias="0.2">
 
     <RadioButton
+        android:id="@+id/BireyselBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bireysel"></RadioButton>
     <RadioButton
+        android:id="@+id/KurumsalBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kurumsal"></RadioButton>
@@ -153,5 +156,6 @@
             app:layout_constraintTop_toBottomOf="@id/KvkkChk"
             app:layout_constraintVertical_bias="0.1"
             app:layout_constraintHorizontal_bias="0.45"
+            android:clickable="false"
             ></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
