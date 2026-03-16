@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/BaslikTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -50,10 +51,49 @@
         android:layout_marginTop="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SifreEdtTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:inputType="numberPassword">
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/RadioMeslekTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/SifreTxtLyt"
+        app:layout_constraintBottom_toTopOf="@id/MeslekRadioGrp"
+        app:layout_constraintStart_toStartOf="@id/SifreTxtLyt"
+        app:layout_constraintEnd_toEndOf="@id/SifreTxtLyt"
+
+
+        android:layout_marginVertical="10dp"
+        android:text="Hesap Türünüz"
+        ></TextView>
+
+    <RadioGroup
+        android:id="@+id/MeslekRadioGrp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/KullaniciAdiTxtLyt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/KullaniciAdiTxtLyt"
+        app:layout_constraintEnd_toEndOf="@id/KullaniciAdiTxtLyt"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintVertical_bias="0.2">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bireysel"></RadioButton>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kurumsal"></RadioButton>
+
+
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
