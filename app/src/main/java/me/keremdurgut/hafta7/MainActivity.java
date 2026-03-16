@@ -1,10 +1,12 @@
 package me.keremdurgut.hafta7;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
@@ -39,14 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
         // 2. ADIM: Elemanları XML'deki ID'leri ile eşleştiriyoruz.
         // Dikkat: KullaniciAdiTxtLyt yerine, içindeki EditText'in kendisini bulmalıyız.
-        // XML'de Kullanıcı adı için TextInputEditText'e bir ID vermediğini fark ettim,
-        // Lütfen XML'de ona android:id="@+id/KullaniciAdiEdtTxt" ekle.
         kullaniciAdiEdtTxt = findViewById(R.id.KullaniciAdiEdtTxt);
         sifreEdtTxt = findViewById(R.id.SifreEdtTxt);
         meslekRadioGrp = findViewById(R.id.MeslekRadioGrp);
         maasRadioGrp = findViewById(R.id.MaasRadioGrp);
         kvkkChk = findViewById(R.id.KvkkChk);
         onayBtn = findViewById(R.id.OnayBtn);
+
 
         // Uygulama ilk açıldığında buton pasif olsun
         onayBtn.setEnabled(false);
@@ -85,6 +86,30 @@ public class MainActivity extends AppCompatActivity {
 
         kullaniciAdiEdtTxt.addTextChangedListener(metinDinleyici);
         sifreEdtTxt.addTextChangedListener(metinDinleyici);
+
+        // Butona tıklandığında çalışacak kodlar
+        onayBtn.setOnClickListener(v -> {
+            // Yeni sayfaya geçiş "niyetimizi" belirtiyoruz
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+
+            // Verileri intent içerisine "anahtar-değer" (Key-Value) şeklinde paketliyoruz
+            intent.putExtra("KULLANICI_ADI", kullaniciAdiEdtTxt.getText().toString());
+            intent.putExtra("SIFRE", sifreEdtTxt.getText().toString());
+
+            // Seçilen hesap türünü (Meslek) bulup paketliyoruz
+            int seciliMeslekId = meslekRadioGrp.getCheckedRadioButtonId();
+            RadioButton seciliMeslekBtn = findViewById(seciliMeslekId);
+            intent.putExtra("HESAP_TURU", seciliMeslekBtn.getText().toString());
+
+            // Seçilen maaşı bulup paketliyoruz
+            int seciliMaasId = maasRadioGrp.getCheckedRadioButtonId();
+            RadioButton seciliMaasBtn = findViewById(seciliMaasId);
+            intent.putExtra("MAAS", seciliMaasBtn.getText().toString());
+
+            // Yeni aktiviteyi başlatıyoruz!
+            startActivity(intent);
+        });
+
     }
 
     // 4. ADIM: Asıl logic katmanımız. Sadece bu metot her şeyi değerlendirir.
